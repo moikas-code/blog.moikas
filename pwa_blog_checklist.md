@@ -14,7 +14,7 @@
 - [x] Redesign side/bottom article cards (consistent aspect ratio, rounded corners, hover effects)
 - [x] Add section headers (e.g., "Featured", "Latest", "Opinion")
 - [x] Add a right sidebar for "Opinion" or "Trending" (WSJ style)
-- [ ] Add a real or stylized logo for blog.moikas
+- [x] Add a real or stylized logo for blog.moikas
 - [ ] Polish navbar: hover/active states, sticky on scroll, prominent search bar
 - [ ] Add a theme toggle for dark/light mode (daisyUI theme switcher)
 - [ ] Add author avatars and meta info (date, read time, comment count)

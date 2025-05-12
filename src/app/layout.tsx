@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "./service_worker_provider";
+import { ThemeProvider } from 'next-themes';
 
 const geist_sans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +32,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${geist_sans.variable} ${geist_mono.variable} antialiased`}>
-        <ServiceWorkerProvider />
-        {children}
+        <ThemeProvider attribute="data-theme" enableSystem={true} defaultTheme="bloglight">
+          <ServiceWorkerProvider />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
