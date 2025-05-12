@@ -8,15 +8,22 @@
 
 ## 2. UI Scaffolding & Design
 - [x] Install and configure Tailwind CSS and daisyUI
-- [ ] Design and implement homepage (WallStreetJournal/IGN inspired, flat/material, card-based)
-- [ ] Implement responsive navigation bar (daisyUI `navbar`)
-- [ ] Add hero section and featured articles
-- [ ] Create article card components (daisyUI `card`)
-- [ ] Implement dark/light theme toggle (daisyUI theme switcher)
-- [ ] Add search and filter UI
-- [ ] Add author profile and avatar UI
-- [ ] Add comments/reactions UI (optional)
+- [x] Pick a color palette and font pairing 
+- [ ] Improve typography and spacing (font hierarchy, padding, margin)
+- [ ] Redesign featured article card (overlay text, gradient, larger image, bold headline)
+- [ ] Redesign side/bottom article cards (consistent aspect ratio, rounded corners, hover effects)
+- [ ] Add section headers (e.g., "Featured", "Latest", "Opinion")
+- [ ] Add a right sidebar for "Opinion" or "Trending" (WSJ style)
+- [ ] Add a real or stylized logo for blog.moikas
+- [ ] Polish navbar: hover/active states, sticky on scroll, prominent search bar
+- [ ] Add a theme toggle for dark/light mode (daisyUI theme switcher)
+- [ ] Add author avatars and meta info (date, read time, comment count)
+- [ ] Add colored badges for categories/tags (e.g., "REVIEW", "NEWS")
+- [ ] Add a simple footer with copyright, links, and social icons
+- [ ] Use daisyUI's built-in themes/components for rapid improvement
 - [ ] Ensure all UI is responsive and accessible
+- [ ] Add playful colors and large images for Kotaku-inspired sections
+- [ ] Use minimal, elegant palette and whitespace for WSJ-inspired sections
 
 ## 3. Authentication & Authorization (Clerk)
 - [ ] Install and configure Clerk in the project
