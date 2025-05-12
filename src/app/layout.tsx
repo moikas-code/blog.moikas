@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "./service_worker_provider";
 import { ThemeProvider } from 'next-themes';
+import Footer from "../components/footer";
 
 const geist_sans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <ThemeProvider attribute="data-theme" enableSystem={true} defaultTheme="bloglight">
           <ServiceWorkerProvider />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
