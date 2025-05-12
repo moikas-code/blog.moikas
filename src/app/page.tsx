@@ -75,7 +75,7 @@ const articles = [
   },
   {
     image: "/default-article-image.png",
-    title: "Epic Is Promising Bonus V-Bucks To Fortnite Players Who Buy Directly From Its Store",
+    title: "Epic Is Promising Bonus V-Bucks To Fortnite Players Who Buy Directly From Its Store, and It's Already Backfiring plus a lot of other text for testing purposes",
     author: "Taylor S.",
     avatar: "/default-avatar.png",
     date: "Jan 8, 2025",

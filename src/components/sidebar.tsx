@@ -1,11 +1,4 @@
-const categories = [
-  "All",
-  "Reviews",
-  "News",
-  "Opinion",
-  "Guides",
-  "Trending",
-];
+import { categories } from './categories';
 
 export default function Sidebar() {
   return (
@@ -32,7 +25,7 @@ export default function Sidebar() {
       <div>
         <h2 className="text-sm font-semibold text-base-content mb-2">Categories</h2>
         <ul className="flex flex-col gap-2">
-          {categories.map((category) => (
+          {categories.map((category: string) => (
             <li key={category}>
               <button
                 className="btn btn-sm btn-ghost w-full justify-start text-base-content/80 hover:bg-accent/10 hover:text-primary rounded-lg transition-colors duration-150"

@@ -50,13 +50,13 @@ export default function ArticleCard({ image, title, author, avatar, date, read_t
         <div className="absolute inset-0 bg-black/60" />
       </div>
       {/* Card Content */}
-      <div className="relative z-10 flex flex-col h-full px-4 pt-6 pb-4">
+      <div className="relative z-10 flex flex-col h-full px-4 pt-10 pb-4">
         {/* Title */}
         <h2
-          className="text-center font-extrabold text-lg md:text-xl text-white mb-3 break-words leading-tight drop-shadow-lg line-clamp-2 max-h-[3.2em] min-h-[3.2em]"
-          style={{ wordBreak: 'break-word' }}
+          className="text-justify font-extrabold !text-lg !md:text-xl !text-white mb-25 leading-tight drop-shadow-lg line-clamp-2 h-[5.2em] min-h-[3.2em]"
+          // style={{ wordBreak: 'break-word' }}
         >
-          {title.length > 100 ? title.slice(0, 100) + '…' : title}
+          {title.length > 100 ? title.slice(0, 100) : title}
         </h2>
         {/* Author and Meta Info */}
         <div className="flex w-full items-center gap-3 mb-4 min-h-[40px]">
