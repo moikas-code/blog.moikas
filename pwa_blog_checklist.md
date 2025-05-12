@@ -9,11 +9,11 @@
 ## 2. UI Scaffolding & Design
 - [x] Install and configure Tailwind CSS and daisyUI
 - [x] Pick a color palette and font pairing 
-- [ ] Improve typography and spacing (font hierarchy, padding, margin)
-- [ ] Redesign featured article card (overlay text, gradient, larger image, bold headline)
-- [ ] Redesign side/bottom article cards (consistent aspect ratio, rounded corners, hover effects)
-- [ ] Add section headers (e.g., "Featured", "Latest", "Opinion")
-- [ ] Add a right sidebar for "Opinion" or "Trending" (WSJ style)
+- [x] Improve typography and spacing (font hierarchy, padding, margin)
+- [x] Redesign featured article card (overlay text, gradient, larger image, bold headline)
+- [x] Redesign side/bottom article cards (consistent aspect ratio, rounded corners, hover effects)
+- [x] Add section headers (e.g., "Featured", "Latest", "Opinion")
+- [x] Add a right sidebar for "Opinion" or "Trending" (WSJ style)
 - [ ] Add a real or stylized logo for blog.moikas
 - [ ] Polish navbar: hover/active states, sticky on scroll, prominent search bar
 - [ ] Add a theme toggle for dark/light mode (daisyUI theme switcher)
