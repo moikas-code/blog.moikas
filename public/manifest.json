@@ -1,0 +1,17 @@
+{
+  "name": "Moikas Blog",
+  "short_name": "MoikasBlog",
+  "description": "A modern, SEO-friendly, PWA-enabled blog with flat material design.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+      "type": "image/x-icon"
+    }
+  ]
+} 
