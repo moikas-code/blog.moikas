@@ -53,7 +53,7 @@ export default function ArticleCard({ image, title, author, avatar, date, read_t
       <div className="relative z-10 flex flex-col h-full px-4 pt-10 pb-4">
         {/* Title */}
         <h2
-          className="text-justify font-extrabold !text-lg !md:text-xl !text-white mb-25 leading-tight drop-shadow-lg line-clamp-2 h-[5.2em] min-h-[3.2em]"
+          className="text-justify font-extrabold !text-lg !md:text-xl !text-white mb-15 leading-tight drop-shadow-lg line-clamp-2 h-[5.2em] min-h-[3.2em]"
           // style={{ wordBreak: 'break-word' }}
         >
           {title.length > 100 ? title.slice(0, 100) : title}
