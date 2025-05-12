@@ -15,10 +15,9 @@ const nav_links = [
 
 export default function Navbar() {
   const [menu_open, set_menu_open] = useState(false);
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
+  const pathname = usePathname();
   const { theme, setTheme, resolvedTheme } = useTheme();
   const is_dark = resolvedTheme === 'blogdark';
-  const [sign_out_error, set_sign_out_error] = useState<string | null>(null);
   const [mounted, set_mounted] = useState(false);
 
   useEffect(() => {
@@ -258,11 +257,6 @@ export default function Navbar() {
             </button>
           </SignOutButton>
         </SignedIn>
-        {sign_out_error && (
-          <div className="alert alert-error bg-purple-100 text-purple-700 border-purple-400 ml-2">
-            <span>{sign_out_error}</span>
-          </div>
-        )}
       </div>
     </nav>
   );

@@ -1,17 +1,11 @@
 "use client";
 import { SignUp } from "@clerk/nextjs";
-import { useState } from "react";
-
+    
 export default function SignUpPage() {
-  const [error, set_error] = useState<string | null>(null);
+
   return (
     <main className="flex h-screen flex-col items-center justify-center bg-black text-purple-500">
       <div className="w-full max-w-md p-8 rounded-lg border-2 border-green-400 shadow-lg flex flex-col items-center">
-        {error && (
-          <div className="alert alert-error bg-purple-100 text-purple-700 border-purple-400 mb-4">
-            <span>{error}</span>
-          </div>
-        )}
         <SignUp
           path="/sign-up"
           routing="path"
