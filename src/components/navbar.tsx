@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./logo";
 import { useTheme } from 'next-themes';
+import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from '@clerk/nextjs';
 
 const nav_links = [
   { href: "/", label: "Home" },
@@ -17,6 +18,12 @@ export default function Navbar() {
   const pathname = typeof window !== "undefined" ? window.location.pathname : "/";
   const { theme, setTheme, resolvedTheme } = useTheme();
   const is_dark = resolvedTheme === 'blogdark';
+  const [sign_out_error, set_sign_out_error] = useState<string | null>(null);
+  const [mounted, set_mounted] = useState(false);
+
+  useEffect(() => {
+    set_mounted(true);
+  }, []);
 
   // Ensure theme is set on mount for SSR hydration
   useEffect(() => {
@@ -25,6 +32,11 @@ export default function Navbar() {
 
   function handle_toggle_theme() {
     setTheme(is_dark ? 'bloglight' : 'blogdark');
+  }
+
+  if (!mounted) {
+    // Prevent hydration mismatch by not rendering theme-dependent UI until mounted
+    return null;
   }
 
   return (
@@ -51,6 +63,27 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          {/* Authenticated-only links */}
+          <SignedIn>
+            <li>
+              <Link
+                href="/dashboard"
+                className={`px-3 py-1 rounded font-medium transition-colors duration-200 focus:outline-none text-[#ffe066] hover:text-accent focus:text-accent active:text-accent ${pathname === "/dashboard" ? "text-accent border-b-2 border-accent" : ""}`}
+                aria-current={pathname === "/dashboard" ? "page" : undefined}
+              >
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/profile"
+                className={`px-3 py-1 rounded font-medium transition-colors duration-200 focus:outline-none text-[#ffe066] hover:text-accent focus:text-accent active:text-accent ${pathname === "/profile" ? "text-accent border-b-2 border-accent" : ""}`}
+                aria-current={pathname === "/profile" ? "page" : undefined}
+              >
+                Profile
+              </Link>
+            </li>
+          </SignedIn>
         </ul>
       </div>
       {/* Right: Search Bar and User/Profile Buttons */}
@@ -164,6 +197,33 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
+              {/* Authenticated-only links for mobile */}
+              <SignedIn>
+                <li role="none">
+                  <Link
+                    href="/dashboard"
+                    className={`block px-4 py-2 rounded font-medium text-[#ffe066] hover:text-accent focus:text-accent active:text-accent transition-colors duration-200 ${pathname === "/dashboard" ? "text-accent bg-neutral/20" : ""}`}
+                    aria-current={pathname === "/dashboard" ? "page" : undefined}
+                    role="menuitem"
+                    tabIndex={0}
+                    onClick={() => set_menu_open(false)}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li role="none">
+                  <Link
+                    href="/profile"
+                    className={`block px-4 py-2 rounded font-medium text-[#ffe066] hover:text-accent focus:text-accent active:text-accent transition-colors duration-200 ${pathname === "/profile" ? "text-accent bg-neutral/20" : ""}`}
+                    aria-current={pathname === "/profile" ? "page" : undefined}
+                    role="menuitem"
+                    tabIndex={0}
+                    onClick={() => set_menu_open(false)}
+                  >
+                    Profile
+                  </Link>
+                </li>
+              </SignedIn>
               <li className="mt-2">
                 <form
                   role="search"
@@ -182,12 +242,27 @@ export default function Navbar() {
             </ul>
           )}
         </div>
-        {/* User/Profile Button (optional, can be replaced with auth logic) */}
-        <button className="btn btn-ghost btn-circle avatar placeholder ml-1" aria-label="User profile">
-          <div className="bg-secondary text-black rounded-full w-8 flex items-center justify-center">
-            <span className="text-xs font-bold">U</span>
+        {/* Clerk Auth Buttons */}
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button className="btn bg-yellow-400 text-black font-bold px-4 py-2 rounded transition-colors duration-200 hover:bg-purple-500 hover:text-yellow-400 focus:outline-none min-h-[48px] min-w-[48px] ml-2">
+              Sign In
+            </button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton appearance={{ elements: { avatarBox: 'ring-2 ring-green-400' } }} />
+          <SignOutButton redirectUrl="/">
+            <button className="btn bg-yellow-400 text-black font-bold px-4 py-2 rounded transition-colors duration-200 hover:bg-purple-500 hover:text-yellow-400 focus:outline-none min-h-[48px] min-w-[48px] ml-2">
+              Sign Out
+            </button>
+          </SignOutButton>
+        </SignedIn>
+        {sign_out_error && (
+          <div className="alert alert-error bg-purple-100 text-purple-700 border-purple-400 ml-2">
+            <span>{sign_out_error}</span>
           </div>
-        </button>
+        )}
       </div>
     </nav>
   );
